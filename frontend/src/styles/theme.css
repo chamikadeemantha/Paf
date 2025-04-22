@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+  --primary-color: #ff6b6b;
+  --background-dark: rgba(18, 18, 18, 0.95);
+  --text-color: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.8);
+  --text-secondary: rgba(255, 255, 255, 0.6);
+  --border-color: rgba(255, 255, 255, 0.2);
+  --input-background: rgba(255, 255, 255, 0.1);
+  --hover-background: rgba(255, 255, 255, 0.15);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  min-height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+  padding: 20px;
+}
+
+.card {
+  background: var(--background-dark);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.input-field {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  background: var(--input-background);
+  color: var(--text-color);
+  font-size: 16px;
+  backdrop-filter: blur(5px);
+}
+
+.input-field:focus {
+  border-color: rgba(255, 255, 255, 0.4);
+  background: var(--hover-background);
+  outline: none;
+}
+
+.input-field::placeholder {
+  color: var(--text-secondary);
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 15px;
+  background: var(--primary-color);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: #fa5252;
+}
