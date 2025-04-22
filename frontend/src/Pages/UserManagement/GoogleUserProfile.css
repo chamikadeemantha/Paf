@@ -1,0 +1,106 @@
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url('https://source.unsplash.com/1920x1080/?cooking,food') no-repeat center center fixed;
+  background-size: cover;
+  padding: 20px;
+}
+
+.profile-card {
+  background: rgba(23, 23, 23, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 40px;
+  width: 100%;
+  max-width: 850px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  color: white;
+  margin-bottom: 30px;
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  object-fit: cover;
+}
+
+.user_data_card {
+  margin-left: 30px;
+}
+
+.username_card {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.user_data_card_item {
+  color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.user_data_card_item_bio {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+}
+
+.profile-actions {
+  margin-top: 20px;
+}
+
+.delete-button {
+  padding: 12px 24px;
+  background: #ff6b6b;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.delete-button:hover {
+  background: #fa5252;
+}
+
+.my_post_link {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.my_post_link_card {
+  background: rgba(23, 23, 23, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  color: white;
+  text-align: center;
+}
+
+.my_post_link_card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.my_post_link_card_name {
+  margin-top: 15px;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+}
