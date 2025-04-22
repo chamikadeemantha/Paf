@@ -1,0 +1,454 @@
+@import '../../styles/theme.css';
+
+.continer {
+  min-height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url('https://source.unsplash.com/1920x1080/?cooking,food') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.continSection {
+  padding: 40px 20px;
+  margin-top: 60px;
+}
+
+.search-controls {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.searchinput {
+  flex: 1;
+  width: 100%;
+}
+
+.searchinput input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  backdrop-filter: blur(5px);
+}
+
+.searchinput input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.searchinput input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.search-section {
+  padding: 40px 20px 20px;
+  background: rgba(23, 23, 23, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 60px;
+}
+
+.view-toggle {
+  display: flex;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem;
+  border-radius: 10px;
+}
+
+.view-btn {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 0.5rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.view-btn:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.view-btn.active {
+  background: var(--primary-color);
+  color: white;
+}
+
+.content-section {
+  padding: 40px 20px;
+}
+
+.content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  max-width: 800px;
+  margin: 0 auto 30px;
+}
+
+.section-title {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.post_card_continer {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.post_card_continer.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.post_card_continer.grid .post_card {
+  width: 100%;
+  margin: 0;
+  height: auto;
+}
+
+.post_card_continer.list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.post_card_continer.grid .media-collage {
+  aspect-ratio: 16/9;
+}
+
+.post_card {
+  background: rgba(23, 23, 23, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 20px;
+  color: white;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.post_card:hover {
+  transform: translateY(-5px);
+}
+
+.add_new_btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: var(--primary-color);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s, background 0.3s ease;
+}
+
+.add_new_btn:hover {
+  transform: scale(1.1);
+  background: #fa5252;
+}
+
+.add_new_btn_icon {
+  font-size: 24px;
+  color: white;
+}
+
+.flow_btn, .flow_btn_unfalow {
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.flow_btn {
+  background: var(--primary-color);
+  color: white;
+}
+
+.flow_btn:hover {
+  background: #fa5252;
+  transform: translateY(-2px);
+}
+
+.flow_btn_unfalow {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.flow_btn_unfalow:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.add_coment_input {
+  width: 100%;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  color: white;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+.add_coment_input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+.comnt_card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 10px;
+  margin: 5px 0;
+  flex: 1;
+}
+
+.media-modal {
+  position: relative;
+  background: rgba(23, 23, 23, 0.95);
+  border-radius: 20px;
+  padding: 20px;
+  max-width: 90vw;
+  max-height: 90vh;
+  margin: 5vh auto;
+  outline: none;
+}
+
+.media-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-modal-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.close-modal-btn:hover {
+  background: #fa5252;
+}
+
+.not_found_box {
+  text-align: center;
+  color: white;
+  padding: 40px;
+  background: rgba(23, 23, 23, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.not_found_btn {
+  background: var(--primary-color);
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.not_found_btn:hover {
+  background: #fa5252;
+  transform: translateY(-2px);
+}
+
+.card_post_title {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  font-size: 20px;
+  text-transform: capitalize;
+}
+
+/* Update the card_post_description class with white font color */
+.card_post_description {
+  color: #FFFFFF; /* White text color */
+  font-size: 15px;
+  margin-bottom: 5px;
+  line-height: 1.5;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  max-width: 100%;
+  font-weight: 400;
+}
+
+/* Style the description container without background */
+.description-container {
+  margin-bottom: 15px;
+}
+
+/* Style the toggle button with contrasting color */
+.description-toggle-btn {
+  background: none;
+  border: none;
+  color: #4FC3F7; /* Light blue for contrast against white text */
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0;
+  margin-top: 5px;
+  text-align: left;
+}
+
+.description-toggle-btn:hover {
+  text-decoration: underline;
+  color: #81D4FA; /* Lighter blue on hover */
+}
+
+.card_post_category {
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.name_section_post_owner_name {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  font-size: 19px;
+  text-transform: capitalize;
+}
+
+.like_num {
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.comnt_card_username {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  text-transform: capitalize;
+  font-size: 16px;
+}
+
+.comnt_card_coment {
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.not_found_msg {
+  color: rgba(255, 255, 255, 0.9);
+  margin: 20px 0;
+  font-size: 16px;
+}
+
+.likebtn, .combtn {
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.unlikebtn {
+  color: var(--primary-color);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.action_btn_icon {
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.action_btn_icon:hover {
+  color: var(--primary-color);
+}
+
+.recipe-details-toggle {
+  margin-top: 10px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.recipe-details-toggle:hover {
+  background-color: #fa5252;
+}
+
+.recipe-details {
+  margin-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 15px;
+}
+
+.ingredients-section,
+.recipe-steps-section {
+  margin-bottom: 15px;
+}
+
+.recipe-details h4 {
+  color: var(--primary-color);
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.recipe-details p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.description-container {
+  margin-bottom: 15px;
+}
+
+.description-toggle-btn {
+  background: none;
+  border: none;
+  color: #2196F3;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0;
+  margin-top: 5px;
+  text-align: left;
+}
+
+.description-toggle-btn:hover {
+  text-decoration: underline;
+}
