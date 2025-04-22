@@ -12,13 +12,11 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.context.annotation.Configuration;
 import java.util.Properties;
 
-@SpringBootApplication(
-		exclude = {
-				DataSourceAutoConfiguration.class,
-				DataSourceTransactionManagerAutoConfiguration.class,
-				HibernateJpaAutoConfiguration.class
-		}
-)
+@SpringBootApplication(exclude = {
+		DataSourceAutoConfiguration.class,
+		DataSourceTransactionManagerAutoConfiguration.class,
+		HibernateJpaAutoConfiguration.class
+})
 public class BackendApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(BackendApplication.class, args);
