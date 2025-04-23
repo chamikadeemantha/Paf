@@ -62,12 +62,12 @@ public class PostManagementController {
         final File uploadDirectory = new File(uploadDir.isBlank() ? uploadDir : System.getProperty("user.dir"), uploadDir);
 
         // Ensure the upload directory exists
-        if (!uploadDirectory.exists()) {
+        /*if (!uploadDirectory.exists()) {
             boolean created = uploadDirectory.mkdirs();
             if (!created) {
                 return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to create upload directory.");
             }
-        }
+        }*/
 
         List<String> mediaUrls = mediaFiles.stream()
                 .filter(file -> file.getContentType().matches("image/(jpeg|png|jpg)|video/mp4"))
