@@ -125,24 +125,8 @@ public class LearningPlanController {
                 }).orElseThrow(() -> new ResourceNotFoundException(id));
     }
 
-    @DeleteMapping("/learningPlan/{id}")
-    public void delete(@PathVariable String id) {
-        learningPlanRepository.deleteById(id);
-    }
-
-    @GetMapping("/learningPlan/planImages/{filename:.+}")
-    public ResponseEntity<Resource> getImage(@PathVariable String filename) {
-        try {
-            Path file = root.resolve(filename);
-            Resource resource = new UrlResource(file.toUri());
-            return ResponseEntity.ok()
-                    .contentType(MediaType.IMAGE_JPEG)
-                    .body(resource);
-        } catch (Exception e) {
-            throw new RuntimeException("Error loading image: " + e.getMessage());
-        }
-    }
-
+   
+ 
     @Scheduled(cron = "0 0 0 * * ?") // Runs daily at midnight
     public void sendExpiryNotifications() {
         List<LearningPlanModel> plans = learningPlanRepository.findAll();
