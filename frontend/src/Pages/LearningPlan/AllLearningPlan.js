@@ -129,9 +129,11 @@ function AllLearningPlan() {
           <div className="template_dis template-2">
             <div className='user_details_card'>
               <div>
+              <div className='name_section_post'>
+                  <p className='name_section_post_owner_name' style={{color: '#000'}}>{post.postOwnerName}</p>
+                </div>
                 
-                
-              </div>
+                </div>
               {post.postOwnerID === localStorage.getItem('userID') && (
                 <div className='action_btn_icon_post'>
                   <FaEdit
@@ -187,7 +189,7 @@ function AllLearningPlan() {
             <div className='user_details_card'>
               <div>
                 <div className='name_section_post'>
-                  <p className='name_section_post_owner_name' style={{color: '#000'}}>{post.postOwnerName}</p>
+                  <p className='name_section_post_owner_name' style={{color: '#0000'}}>{post.postOwnerName}</p>
                 </div>
                 
               </div>
