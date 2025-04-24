@@ -215,7 +215,7 @@ function AddLearningPlan() {
             <h1 className="post-heading">Create Learning Plan</h1>
           </div>
           <form onSubmit={handleSubmit}>
-            <div className="form-column full-width">
+          <div className="form-column full-width">
               <div className="form-section">
                 <h3 className="section-title">Select Template</h3>
                 <p className="section-description">Click on a template to select it for your learning plan</p>
