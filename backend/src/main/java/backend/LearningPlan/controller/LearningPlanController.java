@@ -83,6 +83,7 @@ public class LearningPlanController {
         return posts;
     }
 
+    //get learningplan
     @GetMapping("/learningPlan/{id}")
     LearningPlanModel getById(@PathVariable String id) {
         LearningPlanModel post = learningPlanRepository.findById(id)
@@ -111,6 +112,7 @@ public class LearningPlanController {
                     
                     if (newLearningPlanModel.getPostOwnerID() != null && !newLearningPlanModel.getPostOwnerID().isEmpty()) {
                         learningPlanModel.setPostOwnerID(newLearningPlanModel.getPostOwnerID());
+
                         // Fetch and update the real name of the post owner
                         String postOwnerName = userRepository.findById(newLearningPlanModel.getPostOwnerID())
                                 .map(user -> user.getFullname())
@@ -153,19 +155,20 @@ public class LearningPlanController {
                     LocalDateTime threeDaysBefore = endDate.minusDays(3);
 
                     if (threeDaysBefore.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")).equals(currentDate)) {
+
                         // Check if a notification already exists for this plan and user
                         boolean notificationExists = notificationRepository.findByUserId(plan.getPostOwnerID())
                                 .stream()
                                 .anyMatch(notification -> notification.getMessage().contains(plan.getTitle()));
 
-                        if (!notificationExists) {
-                            NotificationModel notification = new NotificationModel();
-                            notification.setUserId(plan.getPostOwnerID());
-                            notification.setMessage("Your learning plan \"" + plan.getTitle() + "\" will expire soon.");
-                            notification.setCreatedAt(currentDate);
-                            notification.setRead(false);
-                            notificationRepository.save(notification);
-                        }
+                                if (!notificationExists) {
+                                    NotificationModel notification = new NotificationModel();
+                                    notification.setUserId(plan.getPostOwnerID());
+                                    notification.setMessage("Your learning plan \"" + plan.getTitle() + "\" will expire soon.");
+                                    notification.setCreatedAt(currentDate);
+                                    notification.setRead(false);
+                                    notificationRepository.save(notification);
+                                }
                     }
                 } catch (Exception e) {
                     System.err.println("Error processing plan with ID: " + plan.getId() + ". Error: " + e.getMessage());
