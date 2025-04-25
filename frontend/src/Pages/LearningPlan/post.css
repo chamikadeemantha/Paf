@@ -12,7 +12,9 @@
   padding-bottom: 50px;
   padding-top: 100px;
 }
-
+.image_card{
+  width: 100%;
+}
 .newpart_set_icon{
   font-size: 25px;
   cursor: pointer;

@@ -159,23 +159,7 @@ function UpdateLearningPost() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    if (startDate === endDate) {
-      alert("Start date and end date cannot be the same.");
-      setIsSubmitting(false);
-      return;
-    }
-
-    if (startDate > endDate) {
-      alert("Start date cannot be greater than end date.");
-      setIsSubmitting(false);
-      return;
-    }
-
-    if (tags.length < 2) {
-      alert("Please add at least two tags.");
-      setIsSubmitting(false);
-      return;
-    }
+   
 
     let imageUrl = existingImage;
 
