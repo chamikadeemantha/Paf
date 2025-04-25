@@ -171,11 +171,7 @@ function UpdateLearningPost() {
       return;
     }
 
-    if (tags.length < 2) {
-      alert("Please add at least two tags.");
-      setIsSubmitting(false);
-      return;
-    }
+    
 
     let imageUrl = existingImage;
 
