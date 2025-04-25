@@ -68,10 +68,10 @@ public class LearningProgressController {
                 }).orElseThrow(() -> new ResourceNotFoundException(id));
     }
 
-    @DeleteMapping("/mealprogress/{id}")
+    /*@DeleteMapping("/mealprogress/{id}")
     public void delete(@PathVariable String id) {
         learningProgressRepository.deleteById(id);
-    }
+    }*/
 
     @GetMapping("/mealprogress/images/{filename:.+}")
     public ResponseEntity<Resource> getImage(@PathVariable String filename) {
