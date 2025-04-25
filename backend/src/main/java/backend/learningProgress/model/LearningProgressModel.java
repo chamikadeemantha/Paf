@@ -90,7 +90,7 @@ public class LearningProgressModel {
         return imageUrl;
     }
 
-    public void setImageUrl(String imageUrl) {
+    /*public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
-    }
+    }*/
 }
