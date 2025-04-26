@@ -39,15 +39,15 @@ public class OAuthController {
             user.setGoogleProfileImage(googleProfileImage); // Save Google profile image
             userRepository.save(user);
         } else {
-            user = userRepository.findByEmail(email).orElseThrow(() -> 
-                new IllegalStateException("User not found despite existence check"));
+            user = userRepository.findByEmail(email)
+                    .orElseThrow(() -> new IllegalStateException("User not found despite existence check"));
         }
 
         String redirectUrl = String.format(
-            "http://localhost:3000/oauth2/success?userID=%s&name=%s&googleProfileImage=%s",
-            user.getId().toString(),
-            user.getFullname(),
-            encodedGoogleProfileImage // Use the encoded URL
+                "http://localhost:3000/oauth2/success?userID=%s&name=%s&googleProfileImage=%s",
+                user.getId().toString(),
+                user.getFullname(),
+                encodedGoogleProfileImage // Use the encoded URL
         );
 
         return new RedirectView(redirectUrl);
