@@ -22,9 +22,11 @@ public class UserModel {
     private Set<String> skills = new HashSet<>(); // Added skills field
     private String bio; // Added bio field
 
-    public UserModel() {}
+    public UserModel() {
+    }
 
-    public UserModel(String id, String fullname, String email, String password, String phone, String profilePicturePath, String googleProfileImage) {
+    public UserModel(String id, String fullname, String email, String password, String phone, String profilePicturePath,
+            String googleProfileImage) {
         this.id = id;
         this.fullname = fullname;
         this.email = email;
