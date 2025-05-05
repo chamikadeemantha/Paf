@@ -220,7 +220,7 @@ function AllLearningPlan() {
                 src={getEmbedURL(post.contentURL)}
                 title={post.title}
                 className="iframe_preview_dis"
-                frameBorder="0"
+              
                 allowFullScreen
               ></iframe>
             )}
