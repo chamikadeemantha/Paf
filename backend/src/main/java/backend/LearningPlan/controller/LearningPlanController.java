@@ -69,6 +69,7 @@ public class LearningPlanController {
         }
     }
 
+    //get learningplan
     @GetMapping("/learningPlan")
     List<LearningPlanModel> getAll() {
         List<LearningPlanModel> posts = learningPlanRepository.findAll();
@@ -125,6 +126,7 @@ public class LearningPlanController {
                 }).orElseThrow(() -> new ResourceNotFoundException(id));
     }
 
+    // delete learning plan
     @DeleteMapping("/learningPlan/{id}")
     public void delete(@PathVariable String id) {
         learningPlanRepository.deleteById(id);
