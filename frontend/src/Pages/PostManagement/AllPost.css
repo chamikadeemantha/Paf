@@ -112,7 +112,7 @@
 
 .my-posts-toggle.active {
   background-color: var(--primary-color);
-  color: white;
+  color: black;
   border-color: var(--primary-color);
 }
 
