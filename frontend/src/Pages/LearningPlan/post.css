@@ -18,13 +18,13 @@
 .newpart_set_icon{
   font-size: 25px;
   cursor: pointer;
-  color: #004c5d;
+  color: #09829d;
 }
 .newpart_set{
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 10px;
+  gap: 11px;
   margin-top: 15px;
 }
 .actionButton_add {
@@ -36,7 +36,7 @@
   padding: 12px 20px;
   border-radius: 6px;
   font-weight: 500;
-  border: 1px solid #004c5d;
+  border: 1px solid #036379;
   text-transform: capitalize;
   left: 1260px;
   width: 220px;
@@ -75,7 +75,7 @@
   border-radius: 5px;
   justify-content: center;
   padding: 15px;
-  gap: 15px;
+  gap: 15.5px;
   flex-direction: column;
   align-items: flex-start;
   display: flex;
