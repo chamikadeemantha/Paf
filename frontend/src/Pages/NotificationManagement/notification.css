@@ -1,56 +1,461 @@
-.noty_topic {
-  font-size: 22px;
-  font-weight: 500;
-  color: #2c3e50;
-  text-transform: capitalize;
+/* notification.css */
+
+.notifications-page.dark-theme {
+  position: relative;
+  min-height: 100vh;
+  background-color: #121212;
+  color: #e0e0e0;
+  overflow-x: hidden;
 }
 
-.noty_time {
-  font-size: 14px;
-  font-weight: 400;
-  color: #7f8c8d;
-  text-transform: capitalize;
+/* Animated Background */
+.animated-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.particle-1 {
+  width: 300px;
+  height: 300px;
+  top: 20%;
+  right: -100px;
+  animation: float 15s infinite ease-in-out;
+  background: radial-gradient(circle, rgba(65, 105, 225, 0.1) 0%, transparent 70%);
+}
+
+.particle-2 {
+  width: 200px;
+  height: 200px;
+  bottom: 10%;
+  left: -50px;
+  animation: float 12s infinite ease-in-out reverse;
+  background: radial-gradient(circle, rgba(138, 43, 226, 0.1) 0%, transparent 70%);
+}
+
+.particle-3 {
+  width: 150px;
+  height: 150px;
+  top: 60%;
+  left: 30%;
+  animation: float 8s infinite ease-in-out 2s;
+  background: radial-gradient(circle, rgba(0, 191, 255, 0.1) 0%, transparent 70%);
+}
+
+.particle-4 {
+  width: 100px;
+  height: 100px;
+  top: 30%;
+  left: 50%;
+  animation: float 10s infinite ease-in-out 1s;
+  background: radial-gradient(circle, rgba(255, 69, 0, 0.1) 0%, transparent 70%);
+}
+
+.particle-5 {
+  width: 80px;
+  height: 80px;
+  bottom: 20%;
+  right: 10%;
+  animation: float 7s infinite ease-in-out 0.5s;
+  background: radial-gradient(circle, rgba(50, 205, 50, 0.1) 0%, transparent 70%);
+}
+
+.glow-effect {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(41, 128, 185, 0.03) 0%, transparent 70%);
+  animation: pulse 15s infinite alternate;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}
+
+.notifications-container {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 100px 20px 40px;
+}
+
+.notifications-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.notifications-header h1 {
+  font-size: 2.5rem;
+  color: #ffffff;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.mark-all-read-btn {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(52, 152, 219, 0.3);
+}
+
+.mark-all-read-btn:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(52, 152, 219, 0.5);
+}
+
+.notification-card {
+  display: flex;
+  align-items: center;
+  background: rgba(30, 30, 30, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.notification-card.unread {
+  border-left: 4px solid #3498db;
+  box-shadow: 0 0 20px rgba(52, 152, 219, 0.3);
+  background: rgba(40, 40, 40, 0.9);
+}
+
+.notification-card.read {
+  opacity: 0.8;
+}
+
+.notification-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.notification-indicator {
+  width: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.unread-dot {
+  width: 12px;
+  height: 12px;
+  background-color: #3498db;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #3498db;
+}
+
+.notification-content {
+  flex: 1;
+  padding: 0 20px;
+}
+
+.notification-message {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0 0 5px 0;
+}
+
+.notification-card.unread .notification-message {
+  font-weight: 600;
+  color: #3498db;
+  text-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+.notification-time {
+  font-size: 0.85rem;
+  color: #b0b0b0;
+  margin: 0;
   font-style: italic;
 }
 
-.mark_redbtn {
-  background-color: #004c5d;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  padding: 8px 15px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 600;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.noty_action_btn_con {
+.notification-actions {
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
   gap: 10px;
-  width: 100%;
 }
 
-.not_found_msg {
-  color: #34495e;
+.mark-read-btn, .delete-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.mark-read-btn {
+  color: #3498db;
+}
+
+.mark-read-btn:hover {
+  background: rgba(52, 152, 219, 0.2);
+  color: #5dade2;
+  box-shadow: 0 0 10px rgba(52, 152, 219, 0.3);
+}
+
+.delete-btn {
+  color: #e74c3c;
+}
+
+.delete-btn:hover {
+  background: rgba(231, 76, 60, 0.2);
+  color: #ec7063;
+  box-shadow: 0 0 10px rgba(231, 76, 60, 0.3);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 50px 20px;
+  background: rgba(30, 30, 30, 0.8);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.empty-illustration {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 30px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23424242"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zm0-2a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm-3.5-6h7a1.5 1.5 0 0 1 0 3h-7a1.5 1.5 0 0 1 0-3zm0-2a1.5 1.5 0 0 1 0-3h7a1.5 1.5 0 0 1 0 3h-7z"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.7;
+}
+
+.empty-message {
+  font-size: 1.5rem;
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.empty-subtext {
+  font-size: 1rem;
+  color: #b0b0b0;
+  margin: 0;
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.notification-skeleton {
+  height: 80px;
+  background: linear-gradient(90deg, #252525 25%, #2e2e2e 50%, #252525 75%);
+  background-size: 200% 100%;
+  border-radius: 12px;
+  animation: shimmer 1.5s infinite;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .notifications-container {
+    padding: 80px 15px 30px;
+  }
+  
+  .notifications-header h1 {
+    font-size: 2rem;
+  }
+  
+  .notification-card {
+    padding: 15px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .notification-content {
+    padding: 10px 0;
+  }
+  
+  .notification-actions {
+    align-self: flex-end;
+    margin-top: 10px;
+  }
+  
+  .particle-1, .particle-2 {
+    display: none;
+  }
+}
+
+/* Add these to your existing dark theme CSS */
+
+/* Filter Tabs */
+.filter-tabs {
+  display: flex;
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 4px;
+}
+
+.filter-tab {
+  background: transparent;
+  border: none;
+  color: #b0b0b0;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.filter-tab.active {
+  background: rgba(52, 152, 219, 0.2);
+  color: #3498db;
   font-weight: 500;
 }
 
-.post_card.unread .noty_topic {
-  color: #2980b9;
-  font-weight: 600;
+.filter-tab:hover:not(.active) {
+  background: rgba(255, 255, 255, 0.1);
 }
 
-.post_card.read .noty_topic {
-  color: #7f8c8d;
+/* Header Layout */
+.header-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
 }
 
-.action_btn_icon {
-  color: #2c3e50;
+.bulk-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
 }
 
-.action_btn_icon:hover {
-  color: #e74c3c;
+.archive-read-btn {
+  background: rgba(155, 89, 182, 0.2);
+  color: #9b59b6;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  box-shadow: 0 0 15px rgba(155, 89, 182, 0.1);
+}
+
+.archive-read-btn:hover {
+  background: rgba(155, 89, 182, 0.3);
+  box-shadow: 0 0 20px rgba(155, 89, 182, 0.2);
+}
+
+/* Read Indicator */
+.read-icon {
+  color: #2ecc71;
+  font-weight: bold;
+  width: 20px;
+  text-align: center;
+}
+
+/* Mark Unread Button */
+.mark-unread-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  color: #f39c12;
+}
+
+.mark-unread-btn:hover {
+  background: rgba(243, 156, 18, 0.2);
+  color: #f1c40f;
+  box-shadow: 0 0 10px rgba(243, 156, 18, 0.3);
+}
+
+/* Empty State Variations */
+.empty-state.no-read .empty-illustration {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23424242"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zm0-2a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm-3.5-6h7a1.5 1.5 0 0 1 0 3h-7a1.5 1.5 0 0 1 0-3zm0-2a1.5 1.5 0 0 1 0-3h7a1.5 1.5 0 0 1 0 3h-7z"/></svg>');
+}
+
+.empty-state.no-unread .empty-illustration {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23424242"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zm-1-7v2h2v-2h-2zm0-10v8h2V5h-2z"/></svg>');
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .header-actions {
+    flex-direction: column;
+  }
+  
+  .filter-tabs {
+    align-self: center;
+  }
+  
+  .bulk-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .mark-all-read-btn,
+  .archive-read-btn {
+    width: 100%;
+    justify-content: center;
+  }
 }
