@@ -31,11 +31,11 @@ function UpdatePostContent() {
   const [newMediaPreviews, setNewMediaPreviews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [errors, setErrors] = useState({});
-  const [charCount, setCharCount] = useState({ 
-    title: 0, 
+  const [charCount, setCharCount] = useState({
+    title: 0,
     description: 0,
     ingredients: 0,
-    recipe: 0 
+    recipe: 0
   });
   const [isDragging, setIsDragging] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
