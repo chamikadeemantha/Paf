@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavBar from '../../Components/NavBar/NavBar';
 import LoadingSpinner from '../../Components/common/Components/LoadingSpinner';
@@ -147,9 +147,40 @@ function AddNewPostContent() {
         continue;
       }
 
-      if (isVideo && (hasVideo || media.length > 0)) {
-        showError("You can only upload one video OR up to 3 images.");
-        continue;
+      if (isVideo) {
+        // Create a video element to check its duration
+        const videoElement = document.createElement('video');
+        videoElement.src = URL.createObjectURL(file);
+        
+        videoElement.onloadedmetadata = () => {
+          // Check if the video duration exceeds 30 seconds
+          if (videoElement.duration > 30) {
+            showError(`Video "${file.name}" exceeds the 30-second limit.`);
+            return; // Don't proceed with adding the file if the duration is more than 30s
+          }
+          
+          // Check for other conditions (one video or up to 3 images)
+          if (hasVideo || media.length > 0) {
+            showError("You can only upload one video OR up to 3 images.");
+            return;
+          }
+
+          // If the file passes the checks, add it to the media array
+          setMedia((prevMedia) => [...prevMedia, file]);
+          
+          const preview = {
+            url: URL.createObjectURL(file),
+            type: file.type,
+            name: file.name,
+            size: formatFileSize(file.size)
+          };
+
+          setMediaPreviews((prevPreviews) => [...prevPreviews, preview]);
+        };
+
+        videoElement.onerror = () => {
+          showError(`Unable to read video file "${file.name}".`);
+        };
       }
 
       if (isImage) {
@@ -162,18 +193,18 @@ function AddNewPostContent() {
           showError(`You can only upload ${FILE_LIMITS.MAX_IMAGES_PER_POST} images maximum.`);
           continue;
         }
-      }
 
-      setMedia((prevMedia) => [...prevMedia, file]);
-      
-      const preview = {
-        url: URL.createObjectURL(file),
-        type: file.type,
-        name: file.name,
-        size: formatFileSize(file.size)
-      };
-      
-      setMediaPreviews((prevPreviews) => [...prevPreviews, preview]);
+        setMedia((prevMedia) => [...prevMedia, file]);
+        
+        const preview = {
+          url: URL.createObjectURL(file),
+          type: file.type,
+          name: file.name,
+          size: formatFileSize(file.size)
+        };
+        
+        setMediaPreviews((prevPreviews) => [...prevPreviews, preview]);
+      }
     }
   };
 
